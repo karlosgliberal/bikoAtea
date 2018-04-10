@@ -12,7 +12,16 @@ gulp.task('sass', function() {
 
 // Move JS Files to src/js
 gulp.task('js', function() {
-    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/tether/dist/js/tether.min.js'])
+    return gulp.src(
+      [
+        'node_modules/bootstrap/dist/js/bootstrap.min.js',
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/tether/dist/js/tether.min.js',
+        'node_modules/firebase/firebase.js',
+        'node_modules/firebase/firebase-firestore.js',
+        'node_modules/p5/lib/p5.js',
+        'node_modules/p5/lib/addons/p5.dom.js'
+      ])
         .pipe(gulp.dest("src/js"))
         .pipe(browserSync.stream());
 });
