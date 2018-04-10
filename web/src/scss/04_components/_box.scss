@@ -1,0 +1,27 @@
+.box--title {}
+
+.box--number {
+  font-family: $font-source;
+  font-weight: 600;
+  font-size  : 48px;
+}
+
+.box--number__date {
+  font-family: $font-source;
+  font-weight: 400;
+  font-size  : 20px;
+
+  img {
+    position: relative;
+    top     : -10px;
+  }
+}
+
+.box--title {
+  font-size     : 14px;
+  letter-spacing: 0.06em;
+}
+
+.aaa {
+  height: 200px;
+}

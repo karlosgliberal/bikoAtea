@@ -1,0 +1,80 @@
+@mixin rollover {
+  transition: all 400ms ease-out;
+
+  &:active {
+    transition: all 200ms ease-out;
+  }
+}
+
+a:focus {
+  color: $white;
+}
+
+.u-element-center {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  resize         : both;
+  overflow       : auto;
+}
+
+.divider--20 {
+  height: 70px;
+  @include media-breakpoint-up(md) {
+    height: 150px;
+  }
+}
+
+.text-footer {
+  font-family: $font-open;
+  font-size  : 17px;
+  @include media-breakpoint-down(lg) {
+    font-size: 15px;
+  }
+  color      : #ababab;
+}
+
+.nav-bg {
+  background-color: #B7153F;
+}
+
+.nav-link {
+  color      : $white;
+  font-family: $font-open;
+  @include rollover;
+
+  &:hover {
+    opacity: 0.6;
+    color  : $white;
+  }
+}
+
+.navbar-brand {
+  img {
+    position: relative;
+    top     : -3px;
+  }
+}
+
+.navbar-toggleable-md .navbar-nav .nav-link {
+  padding-right: 1rem;
+  padding-left : 1rem;
+}
+
+.navbar-toggler-icon {
+  background-image   : url("../images/ham.svg");
+  background-position: center;
+  background-repeat  : no-repeat;
+  background-size    : contain;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.text-footer__rigth {
+  text-align: left;
+  @include media-breakpoint-up (md) {
+    text-align: right;
+  }
+}
