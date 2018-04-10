@@ -18,24 +18,29 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const Particle = require("particle-api-js");
-const particle = new Particle();
+
 admin.initializeApp();
 
+const db = admin.firestore();
+
 exports.puertaAbierta = functions.https.onRequest((req, res) => {
-  console.log("prueba");
+  const particle = new Particle();
+  const deviceId = "1b003e001247343432313031";
+  const name = "sound";
+  const auth = "18ac8c8ca8c8fc6d0204c1042729b5f90040dc57";
 
   particle
     .getVariable({
-      deviceId: "1b003e001247343432313031",
-      name: "sound",
-      auth: "18ac8c8ca8c8fc6d0204c1042729b5f90040dc57"
+      deviceId,
+      name,
+      auth
     })
     .then(
       data => {
-        console.log(
-          "Device variable retrieved successfully:",
-          data.body.result
-        );
+        db
+          .collection("puertaBiko")
+          .add({ sonido: data.body.result, timestamp: Date.now() })
+          .then(() => res.status(200).end());
       },
       err => {
         console.log("An error occurred while getting attrs:", err);
