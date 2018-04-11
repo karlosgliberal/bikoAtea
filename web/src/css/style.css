@@ -6440,7 +6440,7 @@ body {
   text-transform: uppercase; }
 
 a:focus {
-  color: #fff; }
+  color: #000; }
 
 .u-element-center {
   display: flex;
@@ -6463,18 +6463,18 @@ a:focus {
     .text-footer {
       font-size: 15px; } }
 
-.nav-bg {
-  background-color: #B7153F; }
+.navbar {
+  border-bottom: 1px solid #f3f1f1; }
 
 .nav-link {
-  color: #fff;
+  color: #000;
   font-family: "Open Sans Condensed", sans-serif;
   transition: all 400ms ease-out; }
   .nav-link:active {
     transition: all 200ms ease-out; }
   .nav-link:hover {
     opacity: 0.6;
-    color: #fff; }
+    color: #000; }
 
 .navbar-brand img {
   position: relative;
@@ -6499,10 +6499,17 @@ button:focus {
     .text-footer__rigth {
       text-align: right; } }
 
+.divider--home {
+  width: 100%;
+  height: 100px; }
+
 .box--number {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   font-size: 48px; }
+  @media (max-width: 991.98px) {
+    .box--number {
+      font-size: 30px; } }
 
 .box--number__date {
   font-family: "Source Sans Pro", sans-serif;

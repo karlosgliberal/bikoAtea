@@ -7,7 +7,7 @@
 }
 
 a:focus {
-  color: $white;
+  color: $black;
 }
 
 .u-element-center {
@@ -34,18 +34,18 @@ a:focus {
   color      : #ababab;
 }
 
-.nav-bg {
-  background-color: #B7153F;
+.navbar {
+  border-bottom: 1px solid #f3f1f1;
 }
 
 .nav-link {
-  color      : $white;
+  color      : $black;
   font-family: $font-open;
   @include rollover;
 
   &:hover {
     opacity: 0.6;
-    color  : $white;
+    color  : $black;
   }
 }
 
@@ -77,4 +77,9 @@ button:focus {
   @include media-breakpoint-up (md) {
     text-align: right;
   }
+}
+
+.divider--home {
+  width : 100%;
+  height: 100px;
 }
