@@ -27,9 +27,9 @@ a:focus {
 
 .text-footer {
   font-family: $font-open;
-  font-size  : 17px;
+  font-size  : 14px;
   @include media-breakpoint-down(lg) {
-    font-size: 15px;
+    font-size: 13px;
   }
   color      : #ababab;
 }
@@ -49,20 +49,13 @@ a:focus {
   }
 }
 
-.navbar-brand {
-  img {
-    position: relative;
-    top     : -3px;
-  }
-}
-
 .navbar-toggleable-md .navbar-nav .nav-link {
   padding-right: 1rem;
   padding-left : 1rem;
 }
 
 .navbar-toggler-icon {
-  background-image   : url("../images/ham.svg");
+  background-image   : url("/images/ham.svg");
   background-position: center;
   background-repeat  : no-repeat;
   background-size    : contain;
