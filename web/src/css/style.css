@@ -6439,6 +6439,10 @@ body {
 .u-uppercase {
   text-transform: uppercase; }
 
+.u-img-bn {
+  filter: grayscale(100%);
+  opacity: 0.5; }
+
 a:focus {
   color: #000; }
 
@@ -6498,6 +6502,9 @@ button:focus {
   @media (min-width: 768px) {
     .text-footer__rigth {
       text-align: right; } }
+
+.footer-wrap {
+  border-top: 1px solid #f3f1f1; }
 
 .divider--home {
   width: 100%;
