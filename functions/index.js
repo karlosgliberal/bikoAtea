@@ -26,6 +26,13 @@ admin.initializeApp();
 
 const db = admin.firestore();
 
+const dayChange = (diaViejo, fechaActual) => {
+  if (moment(fechaActual, "DD-MM-YYYYTHH:mm:ss").isAfter(diaViejo, "day")) {
+    return true;
+  }
+  return false;
+};
+
 exports.puertaAbierta = functions.https.onRequest((req, res) => {
   const particle = new Particle();
   const deviceId = "1b003e001247343432313031";
@@ -88,9 +95,7 @@ exports.nuevoRegistroPuerta = functions.firestore
           dia: diaViejo.format("DD-MM-YYYYTHH:mm:ss")
         };
 
-        if (
-          moment(fechaActual, "DD-MM-YYYYTHH:mm:ss").isAfter(diaViejo, "day")
-        ) {
+        if (dayChange(diaViejo, fechaActual)) {
           campos = {
             dia: fechaActual,
             aperturasDiarias: 1,
