@@ -21,6 +21,6 @@ function draw(){
 
 db.collection("puertaBiko").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
+        console.log(doc.data());
     });
 });
