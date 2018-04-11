@@ -23,6 +23,14 @@ db.collection("puertaBiko").onSnapshot(function(querySnapshot) {
   querySnapshot.forEach(function (documentSnapshot) {
     var data = documentSnapshot.data();
     console.log(data);
+    $("#temperaturaExterior").html(data.temperatura);
     // do something with the data of each document.
   });
 });
+
+db.collection("datosGenericos").doc("datos")
+    .onSnapshot(function(doc) {
+        console.log("Current data: ", doc.data());
+        let datosTotales = doc.data();
+        $("#accesosHoy").html(datosTotales.aperturasDiarias);
+    });
