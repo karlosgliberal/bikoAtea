@@ -7,7 +7,7 @@
     "start": "gulp"
   },
   "dependencies": {
-    "bootstrap": "4.0.0",
+    "bootstrap": "4.1.0",
     "bowser": "^1.9.0",
     "firebase": "^4.12.1",
     "jquery.scrollto": "^2.1.2",
