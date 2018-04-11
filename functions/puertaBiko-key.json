@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "puertabiko",
+  "private_key_id": "e24410a6dd62733264fe4b42a0a543a131936a4f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDF9fJSe7qEQFfK\nBuYSzygV103jn0ynTJ/po9e2wwLT2WU+PvwNa5dx6XpY0IP0n0lM2KkSDl4f5kOf\n6zuMK3fYfUAB04H+VllfeudWamAVfvILwrsiUQA4AP/ZQ/ux1ax/1yut5il1L53o\nQyIU3V7Puz5Yp3LGejmpbs1AmMsWWqgJ7giBImw/r/LGWH90A3Sx5r41vi2tnfBL\nBc5GuOHYtWr+bcEWi4WRZIE1xPyDZoRndQuuLY+f2fH2S1er8I7PQoLlSbdt4lRH\nAqlU1QkqSqjPzBz2GXbUCbAh7WcFmbM3b/86i3GnTWzvb+Sj6BhF7MGT0Ea5cH8p\npPutac0DAgMBAAECggEABkaxsrh6yiPk8lj9N14o/NRIJ9KFUmllJMw7XRPsahji\nkzJr3XehSJ8x3eMgNihMqo8d7tVCfouy2+GZRxEs4OQnHEe2LUovaDJ4sG5VF2A7\n4wKRI0dQlNFlAgUuZeAKu88mhQJDbF18LlwnqK1CCuhoLvmBzx715uZ9DGlQSLpz\nfjDank688NYEEffyt0OCJ8xcPY9TLqTYpkRSCnHko19hzqNrTp4v1iXjUmIdsOrf\n3/RZLXPM5Qiz3b5Tb9rx/3DZJPXH9KuL2/sm3dPku1wZi/c/vXlbKfOjKFz6761l\nTLtqltTT+T5LQ3ZGaXx97zIZnivCnxxEw9MSv+AP5QKBgQDsmf+6ElGVVl3sgSga\nktjBpfl80iEjWoDwxzxSCem/qqmCa1FcJcx+gZI2Z+i03wOhz7aFPdJsWixEecRH\nDXgX7W/nMZ5ejKe1GfA4hZfcPhQAaKdtKeWAVXBPtambmGSIfZvzY1JrlJPHv5+t\nLCHeJN9Ogim0eHsv/OgfCR9rNQKBgQDWMOuFwoJlUC/YhttQUlvMig4Bo4YjRzPc\nbjh1N5k4QRIkwB/XkDji0KHOA4Q2TQYOSoSgoujESBPq4IpDgg8oPJEak7S9LVzO\n83ZLDr0BXSVJx6Gw7o6wSiMQ2RfniumpKCbxfNeblg71C//BW7rbkffv/HTP36wu\n2zqoMlimVwKBgHTVTswpQ5QEw/iHhrAol1R4iwwyDx8QD9/V4ll4f66frXizWcew\n+pv1i6fGA8lc3sRGd5CwCHpsxLNDlcKoSgc2vi1h+RwjRKVPG6otfeHJ3cKd6x8i\nsyt+BSm3QPuOcwZbUGkNQKPTCG54l3bB9i9l8ccoy0NMwzfdIRpCPPuJAoGAMqNi\nKz9vIJCynxhS5UxzU4oYAZ8taU2+HxEX2+6HFNuddH7PiGEacdUtS81dBpFzKxHH\nBUs+iJkZzF/FkGxBNRwMmiHtiwQcevjoMJqNaLMiy6yct33O0jLU03jfw+f9kfZi\nLpl7R9dUNe7eSlJrfNmnql8fJr4UsQc3eOheOQUCgYEAroBFKdSpeQgSxrs9QoVI\nuo6Cojb1Q81TAj51cif+U6011aEv5XlPGoTo5q1bh56fA69xNrdeGK1qo3JJOXQS\naqaQ6EUE+zkPCDdg0tGLslO9RFGTndz0nKZcZ0ADyX84aGlCTSStOoTwJU/na7pu\nuyDWCu/cJ3us9yr0POLt2Zg=\n-----END PRIVATE KEY-----\n",
+  "client_email": "acceso-puerta@puertabiko.iam.gserviceaccount.com",
+  "client_id": "109702836966505868956",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/acceso-puerta%40puertabiko.iam.gserviceaccount.com"
+}

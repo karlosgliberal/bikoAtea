@@ -7,7 +7,7 @@
 *
 *      http://www.apache.org/licenses/LICENSE-2.0
 *
-* Unless required by applicable law or agreed to in writing, software
+* Unless required by applicable law or https://puertabiko.firebaseio.coma;greed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
@@ -18,8 +18,12 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const Particle = require("particle-api-js");
+const serviceAccount = require('./puertaBiko-key.json');
 
-admin.initializeApp();
+admin.initializeApp({
+  credential:admin.credential.cert(serviceAccount),
+  databaseURL:"https://puertabiko.firebaseio.com"
+});
 
 const db = admin.firestore();
 
@@ -41,7 +45,7 @@ exports.puertaAbierta = functions.https.onRequest((req, res) => {
       data => {
         db
         .collection("puertaBiko")
-        .add({ sonido: data.body.result, timestamp: Date.now(), auth:token })
+        .add({ sonido: data.body.result, timestamp: Date.now() })
         .then(() => res.status(200).end());
       },
       err => {
