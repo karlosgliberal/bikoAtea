@@ -19,12 +19,9 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const Particle = require("particle-api-js");
 const request = require("request-promise");
-const serviceAccount = require('./puertaBiko-key.json');
+// const serviceAccount = require("./puertaBiko-key.json");
 
-admin.initializeApp({
-  credential:admin.credential.cert(serviceAccount),
-  databaseURL:"https://puertabiko.firebaseio.com"
-});
+admin.initializeApp();
 
 const db = admin.firestore();
 
@@ -57,10 +54,6 @@ exports.puertaAbierta = functions.https.onRequest((req, res) => {
         const nubes = weather.clouds.all;
         const temperatura = weather.main.temp;
         const tiempo = weather.weather[0].main;
-        //   console.log(weather.weather[0].main);
-        //   console.log(weather.main.temp);
-        //   console.log(weather.clouds.all);
-        //   console.log(weather);
 
         db
           .collection("puertaBiko")
