@@ -1,18 +1,18 @@
 /**
- * Copyright 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+* Copyright 2016 Google Inc. All Rights Reserved.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 "use strict";
 
 const functions = require("firebase-functions");
@@ -28,8 +28,10 @@ exports.puertaAbierta = functions.https.onRequest((req, res) => {
   const deviceId = "1b003e001247343432313031";
   const name = "sound";
   const auth = "18ac8c8ca8c8fc6d0204c1042729b5f90040dc57";
+  const token = "vg6PbAimIzWl3yhJfd9fti71m30QVAyJQy0kjWLt";
 
-  particle
+  if(req.query.auth == token){
+    particle
     .getVariable({
       deviceId,
       name,
@@ -38,12 +40,15 @@ exports.puertaAbierta = functions.https.onRequest((req, res) => {
     .then(
       data => {
         db
-          .collection("puertaBiko")
-          .add({ sonido: data.body.result, timestamp: Date.now() })
-          .then(() => res.status(200).end());
+        .collection("puertaBiko")
+        .add({ sonido: data.body.result, timestamp: Date.now(), auth:token })
+        .then(() => res.status(200).end());
       },
       err => {
         console.log("An error occurred while getting attrs:", err);
       }
     );
+  }else {
+    console.log("error token");
+  }
 });
