@@ -32,6 +32,12 @@ exports.puertaAbierta = functions.https.onRequest((req, res) => {
   const auth = "18ac8c8ca8c8fc6d0204c1042729b5f90040dc57";
   const token = "vg6PbAimIzWl3yhJfd9fti71m30QVAyJQy0kjWLt";
 
+  const optionsApiWeather = {
+    uri:
+      "http://api.openweathermap.org/data/2.5/weather?q=Pamplona,es&units=metric&appid=5cee23b32b7408d0e0e4133e7b9287e5",
+    json: true
+  };
+
   if (req.query.auth == token) {
     const getParticles = particle.getVariable({
       deviceId,
@@ -39,13 +45,7 @@ exports.puertaAbierta = functions.https.onRequest((req, res) => {
       auth
     });
 
-    const options = {
-      uri:
-        "http://api.openweathermap.org/data/2.5/weather?q=Pamplona,es&units=metric&appid=5cee23b32b7408d0e0e4133e7b9287e5",
-      json: true
-    };
-
-    const getWeather = request(options);
+    const getWeather = request(optionsApiWeather);
 
     return Promise.all([getParticles, getWeather]).then(
       results => {
@@ -68,3 +68,18 @@ exports.puertaAbierta = functions.https.onRequest((req, res) => {
     console.log("error token");
   }
 });
+
+exports.nuevoRegistroPuerta = functions.firestore
+  .document("puertaBiko/{userId}")
+  .onCreate(event => {
+    const refDatos = db.collection("datosGenericos").doc("datos");
+    refDatos
+      .get()
+      .then(doc => doc.data())
+      .then(({ aperturasDiarias, aperturasTotales }) => {
+        refDatos.update({
+          aperturasDiarias: aperturasTotales + 1,
+          aperturasTotales: aperturasTotales + 1
+        });
+      });
+  });
