@@ -1,0 +1,146 @@
+2018-04-11T10:53:19.686Z - info: User function triggered, starting execution
+2018-04-11T10:53:19.688Z - info: 1
+error token
+2018-04-11T10:53:19.766Z - info: Execution took 92 ms, finished with status: 'crash'
+2018-04-11T10:53:32.641Z - info: User function triggered, starting execution
+2018-04-11T10:53:32.642Z - info: 1
+2018-04-11T10:53:32.642Z - info: error token
+2018-04-11T10:53:37.741Z - info: User function triggered, starting execution
+2018-04-11T10:53:37.742Z - info: 1
+error token
+2018-04-11T10:53:39.428Z - info: User function triggered, starting execution
+2018-04-11T10:53:39.428Z - info: 1
+error token
+2018-04-11T10:53:41.211Z - info: User function triggered, starting execution
+2018-04-11T10:53:41.212Z - info: 1
+error token
+2018-04-11T10:54:16.527Z - info: Execution took 35318 ms, finished with status: 'crash'
+2018-04-11T10:54:16.528Z - info: Execution took 37102 ms, finished with status: 'crash'
+2018-04-11T10:54:16.528Z - info: Execution took 38790 ms, finished with status: 'crash'
+2018-04-11T10:54:16.529Z - info: Execution took 45708 ms, finished with status: 'crash'
+2018-04-11T10:54:40.529Z - info: User function triggered, starting execution
+2018-04-11T10:54:40.529Z - info: Function crashed
+2018-04-11T10:54:40.530Z - info: TypeError: Assignment to constant variable.
+    at exports.puertaAbierta.functions.https.onRequest (/Users/wintermute/src/bikoAtea/functions/index.js:33:11)
+    at cloudFunction (/Users/wintermute/src/bikoAtea/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-11T10:54:40.537Z - info: Execution took 8 ms, user function completed successfully
+2018-04-11T10:54:40.827Z - info: User function triggered, starting execution
+2018-04-11T10:54:40.828Z - info: Function crashed
+TypeError: Assignment to constant variable.
+    at exports.puertaAbierta.functions.https.onRequest (/Users/wintermute/src/bikoAtea/functions/index.js:33:11)
+    at cloudFunction (/Users/wintermute/src/bikoAtea/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-11T10:54:40.829Z - info: Execution took 1 ms, user function completed successfully
+2018-04-11T10:54:53.211Z - info: User function triggered, starting execution
+2018-04-11T10:54:53.211Z - info: Function crashed
+TypeError: Assignment to constant variable.
+    at exports.puertaAbierta.functions.https.onRequest (/Users/wintermute/src/bikoAtea/functions/index.js:33:11)
+    at cloudFunction (/Users/wintermute/src/bikoAtea/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-11T10:54:53.212Z - info: Execution took 1 ms, user function completed successfully
+2018-04-11T10:55:21.255Z - info: User function triggered, starting execution
+2018-04-11T10:55:21.256Z - info: Function crashed
+TypeError: Assignment to constant variable.
+    at exports.puertaAbierta.functions.https.onRequest (/Users/wintermute/src/bikoAtea/functions/index.js:33:11)
+    at cloudFunction (/Users/wintermute/src/bikoAtea/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/Users/wintermute/.nvm/versions/node/v8.8.0/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-11T10:55:21.262Z - info: Execution took 8 ms, user function completed successfully
+2018-04-11T10:55:32.303Z - info: Worker for puertaAbierta closed due to file changes.
+2018-04-11T10:55:40.261Z - info: User function triggered, starting execution
+2018-04-11T10:55:40.263Z - info: 1
+2018-04-11T10:55:40.263Z - info: error token
+2018-04-11T10:55:42.174Z - info: User function triggered, starting execution
+2018-04-11T10:55:42.175Z - info: 2
+error token
+2018-04-11T10:55:43.197Z - info: User function triggered, starting execution
+2018-04-11T10:55:43.198Z - info: 3
+error token
+2018-04-11T10:55:43.843Z - info: User function triggered, starting execution
+2018-04-11T10:55:43.843Z - info: 4
+error token
+2018-04-11T10:56:40.250Z - info: Execution took 61615 ms, finished with status: 'timeout'
+2018-04-11T10:56:40.258Z - info: Execution took 56417 ms, finished with status: 'crash'
+2018-04-11T10:56:40.259Z - info: Execution took 57064 ms, finished with status: 'crash'
+2018-04-11T10:56:40.260Z - info: Execution took 58089 ms, finished with status: 'crash'
+2018-04-11T10:58:52.313Z - info: User function triggered, starting execution
+2018-04-11T10:58:52.315Z - info: 1
+2018-04-11T10:58:52.315Z - info: error token
+2018-04-11T10:59:20.605Z - info: User function triggered, starting execution
+2018-04-11T10:59:20.606Z - info: 1
+error token
+2018-04-11T10:59:23.795Z - info: User function triggered, starting execution
+2018-04-11T10:59:23.795Z - info: 2
+error token
+2018-04-11T10:59:24.945Z - info: User function triggered, starting execution
+2018-04-11T10:59:24.945Z - info: 3
+error token
+2018-04-11T10:59:25.584Z - info: User function triggered, starting execution
+2018-04-11T10:59:25.584Z - info: 4
+error token
+2018-04-11T10:59:26.151Z - info: User function triggered, starting execution
+2018-04-11T10:59:26.152Z - info: 5
+error token
+2018-04-11T10:59:26.647Z - info: User function triggered, starting execution
+2018-04-11T10:59:26.648Z - info: 6
+error token
+2018-04-11T10:59:27.150Z - info: User function triggered, starting execution
+2018-04-11T10:59:27.151Z - info: 7
+error token
+2018-04-11T11:00:20.596Z - info: Execution took 60004 ms, finished with status: 'timeout'
+2018-04-11T11:00:20.605Z - info: Execution took 53457 ms, finished with status: 'crash'
+2018-04-11T11:00:20.606Z - info: Execution took 53961 ms, finished with status: 'crash'
+2018-04-11T11:00:20.606Z - info: Execution took 54457 ms, finished with status: 'crash'
+2018-04-11T11:00:20.607Z - info: Execution took 55026 ms, finished with status: 'crash'
+2018-04-11T11:00:20.608Z - info: Execution took 55666 ms, finished with status: 'crash'
+2018-04-11T11:00:20.608Z - info: Execution took 56818 ms, finished with status: 'crash'
+2018-04-11T11:04:46.079Z - info: User function triggered, starting execution
+2018-04-11T11:04:46.081Z - info: cero
+2018-04-11T11:04:53.897Z - info: User function triggered, starting execution
+2018-04-11T11:04:53.897Z - info: cero
+2018-04-11T11:05:37.227Z - info: Execution took 43333 ms, finished with status: 'crash'
+2018-04-11T11:05:37.228Z - info: Execution took 51159 ms, finished with status: 'crash'
+2018-04-11T11:06:20.637Z - info: User function triggered, starting execution
+2018-04-11T11:06:20.638Z - info: cero
+2018-04-11T11:06:20.642Z - info: 1
+error token
+Execution took 5 ms, user function completed successfully
+2018-04-11T11:06:27.114Z - info: User function triggered, starting execution
+2018-04-11T11:06:27.114Z - info: cero
+2018-04-11T11:06:27.115Z - info: 1
+error token
+Execution took 2 ms, user function completed successfully
+2018-04-11T11:06:29.992Z - info: User function triggered, starting execution
+2018-04-11T11:06:29.992Z - info: cero
+1
+error token
+2018-04-11T11:06:29.993Z - info: Execution took 0 ms, user function completed successfully
+2018-04-11T11:06:59.362Z - info: Worker for puertaAbierta closed due to file changes.
