@@ -14,3 +14,9 @@
   filter: grayscale(100%);
   opacity: 0.5;
 }
+
+.hidden-mob {
+  @include media-breakpoint-down (md) {
+    display: none;
+  }
+}
