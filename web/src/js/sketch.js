@@ -19,8 +19,10 @@ function draw(){
   ellipse(10,10,10,10);
 }
 
-db.collection("puertaBiko").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        console.log(doc.data());
-    });
+db.collection("puertaBiko").onSnapshot(function(querySnapshot) {
+  querySnapshot.forEach(function (documentSnapshot) {
+    var data = documentSnapshot.data();
+    console.log(data);
+    // do something with the data of each document.
+  });
 });
