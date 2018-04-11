@@ -6505,6 +6505,9 @@ button:focus {
 .divider--home {
   width: 100%;
   height: 100px; }
+  @media (max-width: 1199.98px) {
+    .divider--home {
+      height: 20px; } }
 
 .box--number {
   font-family: "Source Sans Pro", sans-serif;
