@@ -19,6 +19,7 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const Particle = require("particle-api-js");
 const request = require("request-promise");
+const moment = require("moment");
 // const serviceAccount = require("./puertaBiko-key.json");
 
 admin.initializeApp();
@@ -54,10 +55,11 @@ exports.puertaAbierta = functions.https.onRequest((req, res) => {
         const nubes = weather.clouds.all;
         const temperatura = weather.main.temp;
         const tiempo = weather.weather[0].main;
+        const timestamp = moment(new Date()).format("DD-MM-YYYYTHH:mm:ss");
 
         db
           .collection("puertaBiko")
-          .add({ sonido, timestamp: Date.now(), nubes, temperatura, tiempo })
+          .add({ sonido, timestamp, nubes, temperatura, tiempo })
           .then(() => res.status(200).end());
       },
       err => {
@@ -76,10 +78,26 @@ exports.nuevoRegistroPuerta = functions.firestore
     refDatos
       .get()
       .then(doc => doc.data())
-      .then(({ aperturasDiarias, aperturasTotales }) => {
-        refDatos.update({
-          aperturasDiarias: aperturasTotales + 1,
-          aperturasTotales: aperturasTotales + 1
-        });
+      .then(({ aperturasDiarias, aperturasTotales, dia }) => {
+        const fechaActual = moment().format("DD-MM-YYYYTHH:mm:ss");
+        const diaViejo = moment(dia, "DD-MM-YYYYTHH:mm:ss");
+
+        let campos = {
+          aperturasDiarias: aperturasDiarias + 1,
+          aperturasTotales: aperturasTotales + 1,
+          dia: diaViejo.format("DD-MM-YYYYTHH:mm:ss")
+        };
+
+        if (
+          moment(fechaActual, "DD-MM-YYYYTHH:mm:ss").isAfter(diaViejo, "day")
+        ) {
+          campos = {
+            dia: fechaActual,
+            aperturasDiarias: 1,
+            aperturasTotales: aperturasTotales + 1
+          };
+        }
+
+        refDatos.update(campos);
       });
   });
