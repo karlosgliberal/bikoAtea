@@ -21,8 +21,8 @@ const Particle = require("particle-api-js");
 const serviceAccount = require('./puertaBiko-key.json');
 
 admin.initializeApp({
-  credential:admin.credential.cert(serviceAccount);
-  databaseURL:"https://puertabiko.firebaseio.com";
+  credential:admin.credential.cert(serviceAccount),
+  databaseURL:"https://puertabiko.firebaseio.com"
 });
 
 const db = admin.firestore();
