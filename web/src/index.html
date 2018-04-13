@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Source+Sans+Pro:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Source+Sans+Pro:300,400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <title>Biko</title>
 </head>
@@ -18,87 +18,112 @@
 
     <nav class="navbar navbar-light">
       <a class="navbar-brand" href="#">
-        <img src="images/logo-biko.svg" width="55" alt="Biko2">
+        <img src="images/logo-biko.svg" width="85" alt="Biko2">
       </a>
     </nav>
   </header>
 
   <main>
-    <div class="divider--home"></div>
-    <section class="u-element-center">
+
+    <section class="primary-wrapper">
 
 
 
-      <div class="container-fluid">
+      <div class="container-fluid gate-wrapper">
         <div class="row">
-          <div class="col-md-3 col-12 u-center">
-            <div class="row">
-              <div class="my-md-5 col-4 col-md-12">
 
-                <span class="box--number">59,10</span> <span class="box--number__date hidden-mob">mhz</span>
-                <p class="box--title u-uppercase">Sonido máximo hoy</p>
-              </div>
-              <div class="my-md-5 col-4 col-md-12">
-                <span id="accesosHoy" class="box--number">23</span> <span class="box--number__date hidden-mob pl-2"><img src="images/ico-persona.png" alt="Accesos hoy"></span>
-                <p class="box--title u-uppercase">Accesos hoy</p>
-              </div>
-              <div class="my-md-5 col-4 col-md-12">
+          <div class="col-12 col-md-3 offset-md-1 pt-lg-5">
 
-                <span id="temperaturaExterior" class="box--number">22º</span>
-                <p class="box--title u-uppercase">temperatura exterior</p>
-              </div>
+            <div class="my-md-5 col-4 col-md-12 u-white">
+              <span id="accesosHoy" class="box--number box--number__big">55,70</span>
+              <span class="box--number__date hidden-mob">mhz</span>
+              <p class="box--title u-uppercase">Volumen máximo alcanzado hoy</p>
             </div>
 
+            <div class="my-md-5 col-4 col-md-12 u-white">
+              <span id="accesosHoy" class="box--number box--number__big">67</span>
+
+              <p class="box--title u-uppercase">Veces se ha abierto la puerta hoy</p>
+            </div>
+
+            <div class="my-md-5 col-4 col-md-12 u-white">
+              <span id="accesosHoy" class="box--number box--number__big">23º</span>
+
+              <p class="box--title u-uppercase">temperatura exterior</p>
+            </div>
+
+
+
+
+            <div class="sub--info pt-4 ml-3">
+
+              <p class="box--title u-uppercase u-white u-line-none">
+                proyecto
+              </p>
+              <p class="u-uppercase sub--info__title">
+                Stargate
+              </p>
+
+            </div>
+
+
+
+
+
           </div>
-          <div class="col-md-6 col-12 ">
+
+          <div class="col-12 col-md-7 offset-md-1">
             <img class="img-fluid" src="/images/temp-gate.png" alt="">
           </div>
 
-          <div class="col-md-3 col-12 u-center">
-            <div class="row">
-              <div class="my-md-5 col-4 col-md-12">
-
-                <span class="box--number">159,10</span> <span class="box--number__date"></span><span class="box--number__date hidden-mob">mhz</span>
-                <p class="box--title u-uppercase">Sonido máximo</p>
-              </div>
-              <div class="my-md-5 col-4 col-md-12">
-
-                <span class="box--number">1646</span> <span class="box--number__date"></span><span class="box--number__date pl-2 hidden-mob"><img src="images/ico-persona.png" alt="Accesos hoy"></span>
-                <p class="box--title u-uppercase">Accesos totales</p>
-              </div>
-              <div class="my-md-5 col-4 col-md-12">
-
-                <span class="box--number">3445</span>
-                <p class="box--title u-uppercase">Dia de mas actividad</p>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-        <div class="row u-center">
-          <div class="offset-md-3 col-md-6 col-12">
-            <p class="u-uppercase  mt-2 mt-xl-5">Datos en tiempo real</p>
-            <div class="row pt-2 pt-xl-4">
-              <div class="col-6">
-
-                <span class="box--number">4563</span>
-                <p class="box--title u-uppercase">Sensor de Sonido</p>
-              </div>
-              <div class="col-6">
-
-                <span class="box--number">20132</span>
-                <p class="box--title u-uppercase">Sensor de Apertura</p>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div>
 
     </section>
+
+
+      <section class="datos--historicos">
+
+              <div class="container">
+
+                <div class="row u-center">
+                  <div class="col-12">
+                    <p class="u-uppercase title-historico mt-2 mt-xl-5">Datos históricos</p>
+                    <div class="row pt-2 pt-xl-4">
+
+                      <div class="col-4">
+                        <p class="box--title u-uppercase">puerta abierta</p>
+                        <span class="box--number">4563</span><span class="box--number__date hidden-mob pl-2">veces</span>
+                          <p class="box--title u-uppercase">23/05/2017</p>
+
+                      </div>
+
+                      <div class="col-4">
+                        <p class="box--title u-uppercase">Volumen máximo alcanzado</p>
+                        <span class="box--number">20132</span>
+                                    <p class="box--title u-uppercase">13/05/2018</p>
+
+                      </div>
+
+                      <div class="col-4">
+                        <p class="box--title u-uppercase">Temperatura máxima</p>
+                        <span class="box--number">20º</span>
+                                    <p class="box--title u-uppercase">3/12/2017</p>
+
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+      </section>
+
+
+
   </main>
-  <div class="aaa"> </div>
   <footer class="mb-3 footer-wrap">
     <div class="container-fluid">
       <div class="row">
@@ -108,7 +133,7 @@
 
             <p class="text-footer pt-2">Creado en el laboratorio de experimentación Bikolabs en Biko</p>
             <a href="https://www.biko2.com/bikolabs-creatividad-pirata/">
-              <img class="img-fluid pt-2 u-img-bn" src="/images/footer-logos.svg" width="200"  alt="Biko y Bikolabas">
+              <img class="img-fluid pt-2 u-img-bn" src="/images/footer-logos.svg" width="110"  alt="Bikolabas">
             </a>
           </div>
         </div>

@@ -9,6 +9,12 @@
   }
 }
 
+.box--number__big {
+  font-size  : 98px;
+  line-height: 1em;
+  color      : white;
+}
+
 .box--number__date {
   font-family: $font-source;
   font-weight: 400;

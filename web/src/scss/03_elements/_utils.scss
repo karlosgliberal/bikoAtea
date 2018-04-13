@@ -1,5 +1,5 @@
 .u-white {
-  color: $white;
+  color: $semiwhite;
 }
 
 .u-center {
@@ -19,4 +19,8 @@
   @include media-breakpoint-down (md) {
     display: none;
   }
+}
+
+.u-line-none {
+  line-height: $line-height-none;
 }
