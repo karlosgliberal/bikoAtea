@@ -1,5 +1,5 @@
 .u-white {
-  color: $white;
+  color: $semiwhite;
 }
 
 .u-center {
@@ -19,4 +19,14 @@
   @include media-breakpoint-down (md) {
     display: none;
   }
+}
+
+.u-mobile-dates {
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+}
+
+.u-line-none {
+  line-height: $line-height-none;
 }

@@ -35,7 +35,8 @@ a:focus {
 }
 
 .navbar {
-  border-bottom: 1px solid #f3f1f1;
+  border-bottom   : 1px solid #3C3C3C;
+  background-color: $black;
 }
 
 .nav-link {
@@ -82,4 +83,27 @@ button:focus {
   @include media-breakpoint-down(lg) {
     height: 20px;
   }
+}
+
+.datos--historicos {
+  padding: 50px 0 100px;
+}
+
+.primary-wrapper {
+  background-image   : url("../images/bg.png");
+  background-position: center bottom;
+  background-repeat  : no-repeat;
+  background-size    : cover;
+  padding            : 100px 0;
+}
+
+.sub--info__title {
+  font-family: $font-source;
+  font-size  : 32px;
+  font-weight: bold;
+  color      : white;
+}
+
+.sub--info {
+  border-top: 1px solid white;
 }
