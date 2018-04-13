@@ -82,7 +82,7 @@ exports.nuevoRegistroPuerta = functions.firestore
   .document("puertaBiko/{userId}")
   .onCreate(event => {
     const refDatos = db.collection("datosGenericos").doc("datos");
-    refDatos
+    return refDatos
       .get()
       .then(doc => doc.data())
       .then(({ aperturasDiarias, aperturasTotales, dia }) => {
