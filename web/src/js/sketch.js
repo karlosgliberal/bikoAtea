@@ -9,27 +9,43 @@ var config = {
 firebase.initializeApp(config);
 
 var db = firebase.firestore();
-
+let angle = 0;
 function setup(){
   createCanvas(100,100);
   background(0);
 }
 
 function draw(){
-  ellipse(10,10,10,10);
+  angle += 0.02;
+  background(127+127*sin(angle));
 }
+
+db.collection("puertaBiko")
+.orderBy('sonido', 'desc')
+.limit(1)
+.get()
+.then(({ docs }) => {
+  console.log(docs[0].data());
+})
+
+db.collection("puertaBiko")
+.orderBy('temperatura', 'desc')
+.limit(1)
+.get()
+.then(({ docs }) => {
+  console.log(docs[0].data());
+})
+
 
 db.collection("puertaBiko").onSnapshot(function(querySnapshot) {
   querySnapshot.forEach(function (documentSnapshot) {
     var data = documentSnapshot.data();
-    console.log(data);
     $("#temperaturaExterior").html(data.temperatura);
   });
 });
 
 db.collection("datosGenericos").doc("datos")
-    .onSnapshot(function(doc) {
-        console.log("Current data: ", doc.data());
-        let datosTotales = doc.data();
-        $("#accesosHoy").html(datosTotales.aperturasDiarias);
-    });
+.onSnapshot(function(doc) {
+  let datosTotales = doc.data();
+  $("#accesosHoy").html(datosTotales.aperturasDiarias);
+});
