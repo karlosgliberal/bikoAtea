@@ -24,7 +24,6 @@ db.collection("puertaBiko").onSnapshot(function(querySnapshot) {
     var data = documentSnapshot.data();
     console.log(data);
     $("#temperaturaExterior").html(data.temperatura);
-    // do something with the data of each document.
   });
 });
 
