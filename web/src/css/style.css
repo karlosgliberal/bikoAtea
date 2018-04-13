@@ -6660,9 +6660,12 @@ body {
   text-align: center; }
 
 .title-historico {
-  font-size: 67px;
+  font-size: 30px;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300; }
+  @media (min-width: 768px) {
+    .title-historico {
+      font-size: 67px; } }
 
 .u-white {
   color: #D9D9D9; }
@@ -6680,6 +6683,10 @@ body {
 @media (max-width: 991.98px) {
   .hidden-mob {
     display: none; } }
+
+@media (max-width: 991.98px) {
+  .u-mobile-dates {
+    text-align: center; } }
 
 .u-line-none {
   line-height: 0; }

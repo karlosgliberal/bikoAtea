@@ -7,7 +7,10 @@
 }
 
 .title-historico {
-  font-size  : 67px;
+  font-size  : 30px;
+  @include media-breakpoint-up (md) {
+    font-size: 67px;
+  }
   font-family: $font-source;
   font-weight: 300;
 }
