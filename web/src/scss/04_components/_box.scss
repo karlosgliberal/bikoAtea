@@ -3,9 +3,9 @@
 .box--number {
   font-family: $font-source;
   font-weight: 600;
-  font-size  : 48px;
+  font-size  : 68px;
   @include media-breakpoint-down(md) {
-    font-size: 30px;
+    font-size: 55px;
   }
 }
 

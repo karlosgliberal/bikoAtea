@@ -6770,6 +6770,9 @@ button:focus {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0 0 100px; }
+  @media (max-width: 991.98px) {
+    .primary-wrapper {
+      padding: 0 0 40px; } }
 
 .sub--info__title {
   font-family: "Source Sans Pro", sans-serif;
@@ -6780,13 +6783,16 @@ button:focus {
 .sub--info {
   border-top: 1px solid white; }
 
+.redes {
+  padding-top: 6px; }
+
 .box--number {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
-  font-size: 48px; }
+  font-size: 68px; }
   @media (max-width: 991.98px) {
     .box--number {
-      font-size: 30px; } }
+      font-size: 55px; } }
 
 .box--number__big {
   font-size: 98px;
