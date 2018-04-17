@@ -127,3 +127,16 @@ a.sub--info__title {
 .share-link {
   cursor: pointer;
 }
+
+.nav-item {
+  a {
+    color         : white;
+    text-transform: uppercase;
+    font-family   : $font-source;
+    font-size     : 14px;
+
+    &:hover {
+      color: white;
+    }
+  }
+}

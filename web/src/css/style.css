@@ -6801,6 +6801,14 @@ a.sub--info__title:hover {
 .share-link {
   cursor: pointer; }
 
+.nav-item a {
+  color: white;
+  text-transform: uppercase;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px; }
+  .nav-item a:hover {
+    color: white; }
+
 .box--number {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
