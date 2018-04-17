@@ -94,9 +94,9 @@ button:focus {
   background-position: center bottom;
   background-repeat  : no-repeat;
   background-size    : cover;
-  padding            : 0 0 100px;
+  padding            : 0 0 110px;
   @include media-breakpoint-down(md) {
-    padding: 0 0 40px;
+    padding: 0 0 50px;
   }
 }
 
