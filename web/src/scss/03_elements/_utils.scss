@@ -21,6 +21,13 @@
   }
 }
 
+.hidden-mob-md {
+  display: none;
+  @include media-breakpoint-down (md) {
+    display: inline;
+  }
+}
+
 .u-mobile-dates {
   @include media-breakpoint-down(md) {
     text-align: center;
