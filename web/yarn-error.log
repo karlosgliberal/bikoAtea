@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/wintermute/.nvm/versions/node/v8.8.0/bin/node /Users/wintermute/.yarn/bin/yarn.js run dist
+  /Users/wintermute/.nvm/versions/node/v8.8.0/bin/node /Users/wintermute/.yarn/bin/yarn.js start
 
 PATH: 
   /Users/wintermute/miniconda3/bin:/Users/wintermute/.yarn/bin:/Users/wintermute/.config/yarn/global/node_modules/.bin:/home/wintermute/var/virtualenvs/myvirtualenv/bin:/Users/wintermute/google-cloud-sdk/bin:/Users/wintermute/torch/install/bin:/Users/wintermute/.nvm/versions/node/v8.8.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/X11/bin:/Users/wintermute/go-workspace/bin:/usr/local/opt/go/libexec/bin:/Applications/DevDesktop/tools
@@ -6749,14 +6749,17 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command "dist" not found.
-      at new MessageError (/Users/wintermute/.yarn/lib/cli.js:186:110)
-      at /Users/wintermute/.yarn/lib/cli.js:87307:17
-      at Generator.next (<anonymous>)
-      at step (/Users/wintermute/.yarn/lib/cli.js:98:30)
-      at /Users/wintermute/.yarn/lib/cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (/Users/wintermute/.yarn/lib/cli.js:23451:28)
-      at /Users/wintermute/.yarn/lib/cli.js:95:12
-      at runCommand (/Users/wintermute/.yarn/lib/cli.js:87312:22)
-      at Object.<anonymous> (/Users/wintermute/.yarn/lib/cli.js:87412:14)
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c webpack-dev-server --config conf/webpack.dev.js
+  Directory: /Users/wintermute/src/bikoAtea/web
+  Output:
+  
+      at ProcessTermError.MessageError (/Users/wintermute/.yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/Users/wintermute/.yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/Users/wintermute/.yarn/lib/cli.js:30281:17)
+      at emitTwo (events.js:125:13)
+      at ChildProcess.emit (events.js:213:7)
+      at maybeClose (internal/child_process.js:927:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)

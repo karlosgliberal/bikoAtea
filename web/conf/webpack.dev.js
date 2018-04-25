@@ -5,7 +5,8 @@ const CommonConfig = require('./webpack.common.js');
 
 module.exports = Merge(CommonConfig, {
   plugins: [
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NamedModulesPlugin()
   ],
   devServer: {
     publicPath: '/',
