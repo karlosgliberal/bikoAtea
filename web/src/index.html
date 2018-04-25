@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/epoch.min.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Biko</title>
 </head>
@@ -95,6 +96,10 @@
           <div class="row u-center">
             <div class="col-12">
               <p class="u-uppercase title-historico mt-2 mt-xl-5">Datos históricos</p>
+
+              <div class="row pt-2 pt-xl-4">
+                <div id="area" class="epoch category10" style="height: 200px;"></div>
+              </div>
               <div class="row pt-2 pt-xl-4">
                 <div class="col-md-4 col-12 py-4 py-md-0">
                   <p class="box--title u-uppercase">puerta abierta</p>
@@ -139,9 +144,8 @@
     </footer>
     </div>
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.scrollTo.min.js"></script>
-    <script src="js/jquery.waypoints.js"></script>
-    <script src="js/tether.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="js/epoch.min.js"></script>
     <script src="js/bowser.js"></script>
     <script src="js/firebase.js"></script>
     <script src="js/firebase-firestore.js"></script>

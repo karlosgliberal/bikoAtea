@@ -8,6 +8,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
+
+
 var db = firebase.firestore();
 let angle = 0;
 function setup(){
@@ -36,11 +38,14 @@ db.collection("puertaBiko")
   console.log(docs[0].data());
 })
 
-
+var barChartData = [];
+var valores = []
 db.collection("puertaBiko").onSnapshot(function(querySnapshot) {
   querySnapshot.forEach(function (documentSnapshot) {
     var data = documentSnapshot.data();
-    $("#temperaturaExterior").html(data.temperatura);
+    valores.push();
+    barChartData.push({lable:data.timestamp, value:{time:data.timestamp, temperatura:data.temperatura, sonido:data.sonido}});
+    // $("#temperaturaExterior").html(data.temperatura);
   });
 });
 
