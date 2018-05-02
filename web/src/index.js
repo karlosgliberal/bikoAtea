@@ -5,6 +5,9 @@ import './scss/style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// const coleccionDatosGenericos = 'datosGenericos';
+// const documentosDatosGenericos = 'datos';
+
 var config = {
 	apiKey:'AIzaSyA1W0B66TglY86WGLzAckB7K-XT8SxxVNk',
 	authDomain:'puertabiko.firebaseapp.com',
@@ -26,8 +29,16 @@ class Valor extends React.Component {
 	}
 }
 
+const datosGenericosPuerta = () => {
+	const refDatosGenericos = db.collection('datosGenericos').doc('datos');
+	refDatosGenericos.onSnapshot(function(doc) {
+		let datosTotales = doc.data();
+		render(datosTotales.aperturasDiarias, 'puertaHoy');
+	});
+};
+datosGenericosPuerta();
 
-const valoresHoy = tipo => {
+const valoresTotales = tipo => {
 	const refDatos = db.collection('puertaBiko');
 	return refDatos.orderBy(tipo, 'desc')
 	.limit(1)
@@ -37,11 +48,25 @@ const valoresHoy = tipo => {
 	});
 };
 
+const testIsma = () => {
+	db.collection('puertaBiko')
+	.where('timestamp', '>', '24-04-2018T16:00:00')
+	.where('timestamp', '<', '24-04-2018T20:00:00')
+	.get()
+	.then(({docs}) => {
+		docs.map(doc => {
+			console.log(doc.data());
+		});
+	});
+};
+testIsma();
 
-Promise.all([valoresHoy('sonido'), valoresHoy('temperatura')]).then(values => {
+
+
+Promise.all([valoresTotales('sonido'), valoresTotales('temperatura')]).then(values => {
 	let valoresResSonido = values[0][0].data();
 	let valoresResTemp = values[1][0].data();
-	console.log(valoresResTemp);
+
 	render(valoresResSonido.sonido, 'sonidoHoy');
 	render(valoresResTemp.temperatura, 'temperaturaHoy');
 
@@ -54,10 +79,4 @@ const render = (value, element) => {
 		React.createElement(Valor, {valor: value}, null),
 		document.getElementById(element)
 	);
-};
-
-document.onreadystatechange = () => {
-	if (document.readyState === 'complete') {
-		console.log('log');
-	}
 };

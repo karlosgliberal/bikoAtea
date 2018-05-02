@@ -78,6 +78,68 @@ exports.puertaAbierta = functions.https.onRequest((req, res) => {
   }
 });
 
+const middle = (values) => {
+  let len = values.length;
+  let half = Math.floor(len / 2);
+
+  if(len % 2)
+      return (values[half - 1] + values[half]) / 2.0;
+  else
+      return values[half];
+}
+
+const segmentos = [[7, 12], [12, 16], [16, 21]];
+
+const getSegmentDate = segmentInterval => {
+  const dateFormat = "DD-MM-YYYYTHH:mm:ss";
+  let segmentDate = moment()
+    .subtract(5, "days")
+    .set({ h: "00", m: "00" })
+    .add(segmentInterval, "hour")
+    .format(dateFormat);
+  return segmentDate;
+};
+
+exports.registroSegmentos = functions.https.onRequest((req, res) => {
+  const datos = [];
+  segmentos.map((segmento, index) => {
+    let start = getSegmentDate(segmento[0]);
+    let end = getSegmentDate(segmento[1]);
+    datos[index] = [];
+    db
+      .collection("puertaBiko")
+      .where("timestamp", ">", start)
+      .where("timestamp", "<", end)
+      .limit(5)
+      .get()
+      .then(({ docs }) => {
+        docs.map(doc => {
+          datos[index].push(doc.data().sonido)
+        });
+      })
+      .then(() => {
+          console.log(middle(datos[0]));
+          console.log(middle(datos[1]));
+          console.log(middle(datos[2]));
+      });
+  });
+
+  // res.status(200).send(startDayMoment);
+
+  // console.log(firstSegmentStart);
+  // console.log('24-04-2018T16:00:00');
+  //   db.collection('puertaBiko')
+  //   .where('timestamp', '>', firstSegmentStart)
+  //   .where('timestamp', '<', firstSegmentEnd)
+  //   .get()
+  //   .then(({docs}) => {
+  //     docs.map(doc => {
+  //       console.log(doc.data());
+  //     });
+  //   });
+  //res.status(200).send("hola");
+});
+
 exports.nuevoRegistroPuerta = functions.firestore
   .document("puertaBiko/{userId}")
   .onCreate(event => {
@@ -97,9 +159,9 @@ exports.nuevoRegistroPuerta = functions.firestore
 
         if (dayChange(diaViejo, fechaActual)) {
           campos = {
-            dia: fechaActual,
             aperturasDiarias: 1,
-            aperturasTotales: aperturasTotales + 1
+            aperturasTotales: aperturasTotales + 1,
+            dia: fechaActual
           };
         }
 
