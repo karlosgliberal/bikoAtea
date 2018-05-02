@@ -125,7 +125,7 @@ exports.registroSegmentos = functions.https.onRequest((req, res) => {
         let datosSonidoRegsitroDiario = {
           timestamp: fechaActual 
         };
-        for (let index = 0; index < 3; index++) {
+        for (let index = 0; index < segmentos.length; index++) {
           (datosSonidoRegsitroDiario["segmento" + index] = {
             mediaSonido: media(datosSonido[index]),
             mediaTemperatura: media(datosTemperatura[index]),
