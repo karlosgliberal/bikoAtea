@@ -78,22 +78,19 @@ exports.puertaAbierta = functions.https.onRequest((req, res) => {
   }
 });
 
-const middle = (values) => {
-  let len = values.length;
-  let half = Math.floor(len / 2);
-
-  if(len % 2)
-      return (values[half - 1] + values[half]) / 2.0;
-  else
-      return values[half];
-}
+const media = values => {
+  values.sort((a, b) => a - b);
+  let median =
+    (values[(values.length - 1) >> 1] + values[values.length >> 1]) / 2;
+  return median;
+};
 
 const segmentos = [[7, 12], [12, 16], [16, 21]];
 
 const getSegmentDate = segmentInterval => {
   const dateFormat = "DD-MM-YYYYTHH:mm:ss";
   let segmentDate = moment()
-    .subtract(5, "days")
+    .subtract(7, "days")
     .set({ h: "00", m: "00" })
     .add(segmentInterval, "hour")
     .format(dateFormat);
@@ -101,50 +98,53 @@ const getSegmentDate = segmentInterval => {
 };
 
 exports.registroSegmentos = functions.https.onRequest((req, res) => {
-  const datos = [];
+  const datosSonido = [];
+  const datosTemperatura = [];
+  const datosPuertasAbiertas = [];
+  const fechaActual = moment().format("DD-MM-YYYYTHH:mm:ss");
+
   segmentos.map((segmento, index) => {
     let start = getSegmentDate(segmento[0]);
     let end = getSegmentDate(segmento[1]);
-    datos[index] = [];
     db
       .collection("puertaBiko")
       .where("timestamp", ">", start)
       .where("timestamp", "<", end)
-      .limit(5)
       .get()
       .then(({ docs }) => {
+        datosSonido[index] = [];
+        datosTemperatura[index] = [];
+        datosPuertasAbiertas[index] = [];
         docs.map(doc => {
-          datos[index].push(doc.data().sonido)
+          datosSonido[index].push(doc.data().sonido);
+          datosTemperatura[index].push(doc.data().temperatura);
+          datosPuertasAbiertas[index].push(docs.length);
         });
       })
       .then(() => {
-          console.log(middle(datos[0]));
-          console.log(middle(datos[1]));
-          console.log(middle(datos[2]));
+        let datosSonidoRegsitroDiario = {
+          timestamp: fechaActual 
+        };
+        for (let index = 0; index < 3; index++) {
+          (datosSonidoRegsitroDiario["segmento" + index] = {
+            mediaSonido: media(datosSonido[index]),
+            mediaTemperatura: media(datosTemperatura[index]),
+            totalPuerta: media(datosPuertasAbiertas[index])
+          })
+        }
+
+        res.status(200).send(datosSonidoRegsitroDiario);
       });
   });
-
-  // res.status(200).send(startDayMoment);
-
-  // console.log(firstSegmentStart);
-  // console.log('24-04-2018T16:00:00');
-  //   db.collection('puertaBiko')
-  //   .where('timestamp', '>', firstSegmentStart)
-  //   .where('timestamp', '<', firstSegmentEnd)
-  //   .get()
-  //   .then(({docs}) => {
-  //     docs.map(doc => {
-  //       console.log(doc.data());
-  //     });
-  //   });
-  //res.status(200).send("hola");
 });
 
 exports.nuevoRegistroPuerta = functions.firestore
   .document("puertaBiko/{userId}")
   .onCreate(event => {
-    const refDatos = db.collection("datosGenericos").doc("datos");
-    return refDatos
+    const refDatosSonido = db
+      .collection("datosSonidoGenericos")
+      .doc("datosSonido");
+    return refDatosSonido
       .get()
       .then(doc => doc.data())
       .then(({ aperturasDiarias, aperturasTotales, dia }) => {
@@ -165,6 +165,6 @@ exports.nuevoRegistroPuerta = functions.firestore
           };
         }
 
-        refDatos.update(campos);
+        refDatosSonido.update(campos);
       });
   });
