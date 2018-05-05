@@ -21,11 +21,11 @@ const Particle = require("particle-api-js");
 const request = require("request-promise");
 const moment = require("moment");
 // const serviceAccount = require("./puertaBiko-key.json");
-
 admin.initializeApp();
 
 const db = admin.firestore();
 const dateFormat = "DD-MM-YYYYTHH:mm:ss";
+const segmentos = [[7, 12], [12, 16], [16, 21]];
 
 const dayChange = (diaViejo, fechaActual) => {
   if (moment(fechaActual, "DD-MM-YYYYTHH:mm:ss").isAfter(diaViejo, "day")) {
@@ -40,7 +40,6 @@ exports.puertaAbierta = functions.https.onRequest((req, res) => {
   const name = "sound";
   const auth = "18ac8c8ca8c8fc6d0204c1042729b5f90040dc57";
   const token = "vg6PbAimIzWl3yhJfd9fti71m30QVAyJQy0kjWLt";
-  
 
   const optionsApiWeather = {
     uri:
@@ -87,20 +86,19 @@ const media = values => {
   return median;
 };
 
-const segmentos = [[7, 12], [12, 16], [16, 21]];
 
 const getYesterdayDate = () => {
   let yesterdayDate = moment()
-  .subtract(1, "days")
-  .set({ h: "00", m: "00" })
-  .format(dateFormat);
+    .subtract(1, "days")
+    .set({ h: "00", m: "00" })
+    .format(dateFormat);
   return yesterdayDate;
 };
 
 const getSegmentDate = segmentInterval => {
   const dateFormat = "DD-MM-YYYYTHH:mm:ss";
   let segmentDate = moment()
-    .subtract(7, "days")
+    .subtract(0, "days")
     .set({ h: "00", m: "00" })
     .add(segmentInterval, "hour")
     .format(dateFormat);
@@ -113,7 +111,6 @@ exports.registroSegmentos = functions.https.onRequest((req, res) => {
   const datosPuertasAbiertas = [];
   const fechaActual = moment().format("DD-MM-YYYYTHH:mm:ss");
 
-  console.log(getYesterdayDate());
   segmentos.map((segmento, index) => {
     let start = getSegmentDate(segmento[0]);
     let end = getSegmentDate(segmento[1]);
@@ -133,24 +130,23 @@ exports.registroSegmentos = functions.https.onRequest((req, res) => {
         });
       })
       .then(() => {
-
         let datosSonidoRegsitroDiario = {
-          timestamp: fechaActual 
+          timestamp: fechaActual
         };
 
         for (let index = 0; index < segmentos.length; index++) {
-          (datosSonidoRegsitroDiario["segmento" + index] = {
+          datosSonidoRegsitroDiario["segmento" + index] = {
             mediaSonido: media(datosSonido[index]),
             mediaTemperatura: media(datosTemperatura[index]),
             totalPuerta: media(datosPuertasAbiertas[index])
-          })
+          };
         }
         db
-        .collection("registroDiario")
-        .add(datosSonidoRegsitroDiario)
-        .then(() => {
-          res.status(200).send(datosSonidoRegsitroDiario);
-        });
+          .collection("registroDiario")
+          .add(datosSonidoRegsitroDiario)
+          .then(() => {
+            res.status(200).send(datosSonidoRegsitroDiario);
+          });
       });
   });
 });
@@ -158,10 +154,8 @@ exports.registroSegmentos = functions.https.onRequest((req, res) => {
 exports.nuevoRegistroPuerta = functions.firestore
   .document("puertaBiko/{userId}")
   .onCreate(event => {
-    const refDatosSonido = db
-      .collection("datosGenericos")
-      .doc("datos");
-    return refDatosSonido
+    const refDatos = db.collection("datosGenericos").doc("datos");
+    return refDatos
       .get()
       .then(doc => doc.data())
       .then(({ aperturasDiarias, aperturasTotales, dia }) => {
@@ -182,6 +176,16 @@ exports.nuevoRegistroPuerta = functions.firestore
           };
         }
 
-        refDatosSonido.update(campos);
+        refDatos.update(campos);
       });
+  });
+
+exports.updateValoresTotalesPuerta = functions.firestore
+  .document("puertaBiko/{userId}")
+  .onCreate(event => {
+    const datos = event.data.data();
+    const refDatos = db.collection("datosGenericos").doc("datos");
+    return refDatos
+      .get()
+      .then(doc => doc.data())
   });
