@@ -55,6 +55,8 @@
   "dependencies": {
     "@firebase/firestore": "^0.4.1",
     "bootstrap": "4.1.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "d3": "^5.1.0",
     "file-loader": "^1.1.11",
     "firebase": "^4.13.1",
     "jquery": "^3.3.1",

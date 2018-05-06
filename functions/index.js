@@ -183,9 +183,13 @@ exports.nuevoRegistroPuerta = functions.firestore
 exports.updateValoresTotalesPuerta = functions.firestore
   .document("puertaBiko/{userId}")
   .onCreate(event => {
-    const datos = event.data.data();
+    console.log("movida", event.data());
+    // const datos = event.data.data();
     const refDatos = db.collection("datosGenericos").doc("datos");
     return refDatos
       .get()
       .then(doc => doc.data())
+      .then(({ temperatura, sonido, timestamp }) => {
+        console.log("temperatura", temperatura);
+      })
   });

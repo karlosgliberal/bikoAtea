@@ -1,6 +1,5 @@
 function GetElement() {
    document.addEventListener('DOMContentLoaded',()=>{
-      this.width = 'hola';
       console.log(this);
    });
 }

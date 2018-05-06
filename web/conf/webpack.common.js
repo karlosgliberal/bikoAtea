@@ -3,10 +3,17 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
   filename: "[name].[contenthash].css"
 });
+
+const paths = {
+  src: path.join(__dirname, '../'),
+  dist: path.join(__dirname, 'dist'),
+  data: path.join(__dirname, '../src')
+}
 
 module.exports = {
 
@@ -81,6 +88,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
+    new CopyWebpackPlugin([
+  {
+    from: paths.data,
+    to: paths.dist + 'data'
+  }
+]),
     extractSass
   ]
 };
