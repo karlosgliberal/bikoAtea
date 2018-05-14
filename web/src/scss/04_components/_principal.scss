@@ -140,3 +140,21 @@ a.sub--info__title {
     }
   }
 }
+
+.btn--efecto {
+  color           : #fff;
+  background-color: #20a8d8 !important;
+  border-color    : #20a8d8 !important;
+  text-transform  : uppercase;
+  font-size       : 12px;
+  letter-spacing  : 0.1em;
+  font-weight     : bold;
+}
+
+.btn--efecto:hover {
+  opacity: 0.8;
+}
+
+.seccion--secreta {
+  background-color: #fbfbfb82;
+}
