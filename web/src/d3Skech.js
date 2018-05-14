@@ -1,4 +1,6 @@
 import * as d3 from 'd3';
+import datosTsv from './data/data.tsv';
+import datosDosTsv from './data/data2.tsv';
 
 var margin = { top: 50, right: 0, bottom: 100, left: 30 },
 width = 960 - margin.left - margin.right,
@@ -44,7 +46,7 @@ times = [
   '23',
   '24'
 ];
-var datasets = ['data.tsv', 'data2.tsv'];
+var datasets = [datosTsv, datosDosTsv];
 
 var svg = d3
 .select('#chart')
@@ -94,9 +96,10 @@ var timeLabels = svg
     : 'timeLabel mono axis';
 });
 
-var heatmapChart = function(tsvFile) {
+console.log('movida');
+var heatmapChart = function() {
 d3.tsv(
-  tsvFile,
+  require('./data/data.tsv'),
   function(d) {
     return {
       day: +d.day,
@@ -105,6 +108,7 @@ d3.tsv(
     };
   },
   function(error, data) {
+    console.log(data);
     var colorScale = d3.scale
       .quantile()
       .domain([
@@ -190,7 +194,7 @@ d3.tsv(
 );
 };
 
-heatmapChart(datasets[0]);
+heatmapChart();
 
 var datasetpicker = d3
 .select('#dataset-picker')
