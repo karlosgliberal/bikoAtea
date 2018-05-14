@@ -1,0 +1,43 @@
+.u-white {
+  color: $semiwhite;
+}
+
+.u-center {
+  text-align: center;
+}
+
+.u-uppercase {
+  text-transform: uppercase;
+}
+
+.u-img-bn {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.hidden-mob {
+  @include media-breakpoint-down (md) {
+    display: none;
+  }
+}
+
+.hidden-mob-md {
+  display: none;
+  @include media-breakpoint-down (md) {
+    display: inline;
+  }
+}
+
+.u-mobile-dates {
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+}
+
+.u-line-none {
+  line-height: $line-height-none;
+}
+
+.tmp {
+  background-color: purple;
+}

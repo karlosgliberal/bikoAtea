@@ -1,0 +1,16 @@
+.u-white {
+  color: $white;
+}
+
+.u-center {
+  text-align: center;
+}
+
+.title-historico {
+  font-size  : 30px;
+  @include media-breakpoint-up (md) {
+    font-size: 67px;
+  }
+  font-family: $font-source;
+  font-weight: 300;
+}
