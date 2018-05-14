@@ -4,7 +4,8 @@ import 'image.js';
 import './scss/style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'd3Skech.js';
+// import 'd3Skech.js';
+import 'peticionParticle';
 
 // const coleccionDatosGenericos = 'datosGenericos';
 // const documentosDatosGenericos = 'datos';
@@ -30,6 +31,8 @@ class Valor extends React.Component {
   }
 }
 
+
+
 const datosGenericosPuerta = () => {
   const refDatosGenericos = db.collection('datosGenericos').doc('datos');
   refDatosGenericos.onSnapshot(function(doc) {
@@ -50,19 +53,6 @@ const valoresTotales = tipo => {
     });
 };
 
-const testIsma = () => {
-  db
-    .collection('puertaBiko')
-    .where('timestamp', '>', '24-04-2018T16:00:00')
-    .where('timestamp', '<', '24-04-2018T20:00:00')
-    .get()
-    .then(({ docs }) => {
-      docs.map(doc => {
-          console.log(doc);
-      });
-    });
-};
-testIsma();
 
 Promise.all([valoresTotales('sonido'), valoresTotales('temperatura')]).then(
   values => {
