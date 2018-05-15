@@ -1,11 +1,11 @@
-import 'peticionParticle';
+import peticionParticle from 'peticionParticle';
 import './scss/style.scss';
 import 'image.js';
 
-var element = document.getElementById('azul');
+document.querySelectorAll('.btn--efecto').forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    peticionParticle(event.target.getAttribute('data-route'));
+  });
+});
 
-function movida(){
-  console.log('movida');
-}
-
-element.onclick = movida;
