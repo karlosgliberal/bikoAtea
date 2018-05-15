@@ -61,6 +61,7 @@
     "file-loader": "^1.1.11",
     "firebase": "^4.13.1",
     "jquery": "^3.3.1",
+    "particle-api-js": "^7.2.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "sharer": "^1.4.0",
