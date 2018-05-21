@@ -86,7 +86,6 @@ const media = values => {
   return median;
 };
 
-
 const getYesterdayDate = () => {
   let yesterdayDate = moment()
     .subtract(1, "days")
@@ -183,13 +182,37 @@ exports.nuevoRegistroPuerta = functions.firestore
 exports.updateValoresTotalesPuerta = functions.firestore
   .document("puertaBiko/{userId}")
   .onCreate(event => {
-    console.log("movida", event.data());
+    const datos = event.data();
+    console.log("movida", datos.nubes);
     // const datos = event.data.data();
     const refDatos = db.collection("datosGenericos").doc("datos");
-    return refDatos
+    refDatos
       .get()
       .then(doc => doc.data())
-      .then(({ temperatura, sonido, timestamp }) => {
-        console.log("temperatura", temperatura);
-      })
+      .then(({ maximoTemperatura, maximoSonido }) => {
+        let nuevaMaxima = false;
+        let nuevaTemperatura = 0;
+        let nuevoSonido = 0;
+
+        if (datos.temperatura > maximoTemperatura) {
+          nuevaTemperatura = datos.temperatura;
+          nuevaMaxima = true;
+        } else {
+          nuevaTemperatura = maximoTemperatura;
+        }
+
+        if (datos.sonido > maximoSonido) {
+          nuevoSonido = datos.sonido;
+          nuevaMaxima = true;
+        } else {
+          nuevoSonido = maximoSonido;
+        }
+
+        if (nuevaMaxima) {
+          refDatos.update({
+            maximoTemperatura: nuevaTemperatura,
+            maximoSonido: nuevoSonido
+          });
+        }
+      });
   });
